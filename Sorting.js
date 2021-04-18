@@ -15,4 +15,6 @@ const bubbleSort = (array) => {
 	return array;
 };
 
+//This solution solves the O(n2) time complexity
+//It becomes o(n)
 console.log(bubbleSort([4, 14, 21, 3, 44]));
