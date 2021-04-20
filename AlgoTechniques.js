@@ -37,6 +37,7 @@ const sumZero = (array) => {
 		//initialize a sum variable to be able to perform the operations
 		let sum = array[left] + array[right];
 
+		//if the sum is equal to zero, you've gotten the desired result
 		if (sum === 0) {
 			return [array[left], array[right]];
 		} else if (sum > 0) {
