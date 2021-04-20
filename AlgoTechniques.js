@@ -34,8 +34,9 @@ const sumZero = (array) => {
 	let right = array.length - 1;
 	//while the left is lesser than the right, recall that this is a sorted array
 	while (left < right) {
+		//initialize a sum variable to be able to perform the operations
 		let sum = array[left] + array[right];
-		console.log(sum);
+
 		if (sum === 0) {
 			return [array[left], array[right]];
 		} else if (sum > 0) {
