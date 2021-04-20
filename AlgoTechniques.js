@@ -32,7 +32,7 @@ const sumZero = (array) => {
 	//divide the array into 2 parts
 	let left = 0;
 	let right = array.length - 1;
-
+	//while the left is lesser than the right, recall that this is a sorted array
 	while (left < right) {
 		let sum = array[left] + array[right];
 		console.log(sum);
