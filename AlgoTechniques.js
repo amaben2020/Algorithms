@@ -41,11 +41,26 @@ const sumZero = (array) => {
 		if (sum === 0) {
 			return [array[left], array[right]];
 		} else if (sum > 0) {
+			//if the sum is less than zero, move towards the left
 			right--;
 		} else {
+			//if sum is greater, move towards the rights
 			left++;
 		}
 	}
 };
 
 console.log(sumZero([-1, 2, 3, 4, 5, 12, 1, 13]));
+
+function solve(meal_cost, tip_percent, tax_percent) {
+	meal_cost = 12.0;
+
+	tip_percent = (meal_cost / 100) * 20;
+
+	tax_percent = (meal_cost / 100) * 8;
+
+	const total_cost = meal_cost + tip_percent + tax_percent;
+
+	return Math.round(total_cost);
+}
+console.log(solve(12, 20, 8));
