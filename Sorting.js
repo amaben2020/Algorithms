@@ -60,32 +60,27 @@ const charC = (str) => {
 console.log(charC(charCount));
 
 const anagrams = (str1, str2) => {
-	const firstWord = {};
-	const secondWord = {};
+	const lookup = {};
 
 	for (let i = 0; i < str1.length; i++) {
-		if (firstWord[str1[i]] > 0) {
-			firstWord[str1[i]]++;
-			console.log(firstWord[str1[i]]);
+		let string1 = str1[i];
+
+		if (lookup[string1]) {
+			lookup[string1]++;
 		} else {
-			firstWord[str1[i]] = 0;
+			lookup[string1] = 1;
 		}
 	}
 
 	for (let j = 0; j < str2.length; j++) {
-		if (secondWord[str2[j]] > 0) {
-			secondWord[str2[j]]++;
+		let string2 = str2[j];
+		if (!lookup[string2]) {
+			return false;
 		} else {
-			secondWord[str2[j]] = 0;
+			lookup[string2] -= 1;
 		}
 	}
-	console.log(secondWord);
-	console.log(firstWord);
-	if (firstWord == secondWord) {
-		return true;
-	} else {
-		return false;
-	}
+	return true;
 };
 
-console.log(anagrams("a", "a"));
+console.log(anagrams("anagram", "angrawwma"));
