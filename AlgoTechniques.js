@@ -29,6 +29,7 @@ console.log(anagrams("anagram", "angrama"));
 //write a program that adds 2 values and gives zero
 //USING MULTIPLE POINTER TECHNIQUE
 const sumZero = (array) => {
+	//divide the array into 2 parts
 	let left = 0;
 	let right = array.length - 1;
 
