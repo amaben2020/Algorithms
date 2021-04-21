@@ -26,7 +26,7 @@ const anagrams = (str1, str2) => {
 
 console.log(anagrams("anagram", "angrama"));
 
-//write a program that adds 2 values and gives zero
+//write a program that adds 2 values in an array and returns zero
 //USING MULTIPLE POINTER TECHNIQUE
 const sumZero = (array) => {
 	//divide the array into 2 parts
@@ -52,15 +52,19 @@ const sumZero = (array) => {
 
 console.log(sumZero([-1, 2, 3, 4, 5, 12, 1, 13]));
 
-function solve(meal_cost, tip_percent, tax_percent) {
-	meal_cost = 12.0;
+//Multiple Pointers : countUnique values
+//lets say you have an array [1,1,2,3,4,4] //4
 
-	tip_percent = (meal_cost / 100) * 20;
+const countUniqueVal = (array) => {
+	//initialize the first variable
+	let i = 0;
 
-	tax_percent = (meal_cost / 100) * 8;
-
-	const total_cost = meal_cost + tip_percent + tax_percent;
-
-	return Math.round(total_cost);
-}
-console.log(solve(12, 20, 8));
+	for (let j = 1; j < array.length; j++) {
+		if (array[i] !== array[j]) {
+			i++;
+			array[i] = array[j];
+		}
+	}
+	return i + 1;
+};
+console.log(countUniqueVal([1, 1, 2, 3, 4, 5]));
