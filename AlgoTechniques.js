@@ -56,9 +56,10 @@ console.log(sumZero([-1, 2, 3, 4, 5, 12, 1, 13]));
 //lets say you have an array [1,1,2,3,4,4] //4
 
 const countUniqueVal = (array) => {
-	//initialize the first variable
+	//initialize the first idx
 	let i = 0;
 
+	//initializing the second idx
 	for (let j = 1; j < array.length; j++) {
 		if (array[i] !== array[j]) {
 			i++;
