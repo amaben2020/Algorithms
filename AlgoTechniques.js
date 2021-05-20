@@ -116,6 +116,16 @@ const anagram3 = (a, b) => {
 };
 console.log(anagram3("anambra", "branaam"));
 
+const anagram4 = (anagramA, anagramB) => {
+	let anaHome = {};
+
+	for (let i = 0; i < anagramA.length; i++) {
+		if (anaHome[anagramA[i]]) {
+			anaHome[anagramA[i]]++;
+		}
+	}
+};
+
 //Binary search 3
 const binaryArray = [11, 22, 33, 44, 55];
 const binarySearch3 = (array, value) => {
@@ -153,3 +163,22 @@ const binarySearch4 = (array, value) => {
 	return middlePointer;
 };
 console.log(binarySearch4([1, 2, 3, 4, 5], 5));
+
+const binarySearch5 = (array, value) => {
+	let leftPointer = 0;
+	let rightPointer = array.length - 1;
+	let middlePointer = Math.floor((leftPointer + rightPointer) / 2);
+
+	while (value !== array[middlePointer]) {
+		if (value < middlePointer) {
+			rightPointer = middlePointer - 1;
+		} else {
+			leftPointer = middlePointer + 1;
+		}
+		//remember that you've reinitialized the right and left pointers
+		middlePointer = Math.floor((rightPointer + leftPointer) / 2);
+	}
+
+	return middlePointer;
+};
+console.log(binarySearch5([12, 31, 45, 76, 99], 76));
