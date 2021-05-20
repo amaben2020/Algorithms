@@ -11,24 +11,24 @@
 // 4. The spread syntax => allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) or multiple variables (for destructuring assignment) are expected. Read more about it on MDN.
 // By using the spread syntax in the Math.max() method we get the maximum value from the array very easily without needing to loop through all the numbers. This will do that for us.
 
-function gamingArray(array) {
-	let turns = 0;
-	while (array.length) {
-		array.splice(array.indexOf(Math.max(...array)));
-		turns++;
-	}
-	return turns % 2 === 0 ? "ANDY" : "BOB";
-}
+// function gamingArray(array) {
+// 	let turns = 0;
+// 	while (array.length) {
+// 		array.splice(array.indexOf(Math.max(...array)));
+// 		turns++;
+// 	}
+// 	return turns % 2 === 0 ? "ANDY" : "BOB";
+// }
 
-function solve(meal_cost, tip_percent, tax_percent) {
-	meal_cost = 12.0;
+// function solve(meal_cost, tip_percent, tax_percent) {
+// 	meal_cost = 12.0;
 
-	tip_percent = (meal_cost / 100) * 20;
+// 	tip_percent = (meal_cost / 100) * 20;
 
-	tax_percent = (meal_cost / 100) * 8;
+// 	tax_percent = (meal_cost / 100) * 8;
 
-	const total_cost = meal_cost + tip_percent + tax_percent;
+// 	const total_cost = meal_cost + tip_percent + tax_percent;
 
-	return Math.round(total_cost);
-}
-console.log(solve(12, 20, 8));
+// 	return Math.round(total_cost);
+// }
+// console.log(solve(12, 20, 8));

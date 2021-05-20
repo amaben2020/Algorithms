@@ -1,26 +1,25 @@
 //ANAGRAMS: Frequency counter technique
 const anagrams = (str1, str2) => {
-	const lookup = {};
+	const wordBank = {};
 
 	for (let i = 0; i < str1.length; i++) {
-		const string1 = str1[i];
-
-		if (lookup[string1]) {
-			lookup[string1]++;
+		let string1 = str1[i];
+		if (wordBank[string1]) {
+			wordBank[string1]++;
 		} else {
-			lookup[string1] = 1;
+			wordBank[string1] = 1;
 		}
 	}
+
 	for (let j = 0; j < str2.length; j++) {
 		const string2 = str2[j];
-
-		if (!lookup[string2]) {
+		if (!wordBank[string2]) {
 			return false;
 		} else {
-			lookup[string2]--;
+			wordBank[string2]--;
 		}
 	}
-	console.log(lookup);
+	console.log(wordBank);
 	return true;
 };
 
@@ -69,3 +68,88 @@ const countUniqueVal = (array) => {
 	return i + 1;
 };
 console.log(countUniqueVal([1, 1, 2, 3, 4, 5]));
+
+const anagram2 = (inputA, inputB) => {
+	const counter = {};
+
+	for (let i = 0; i < inputA.length; i++) {
+		if (counter[inputA[i]]) {
+			counter[inputA[i]]++;
+		} else {
+			counter[inputA[i]] = 1;
+		}
+	}
+	for (let j = 0; j < inputB.length; j++) {
+		if (!counter[inputB[j]]) {
+			return false;
+		} else {
+			counter[inputB[j]]--;
+		}
+	}
+
+	return counter;
+};
+
+console.log(anagram2("bok", "okb"));
+
+///anagrams 3
+const anagram3 = (a, b) => {
+	const counter = {};
+
+	for (let i = 0; i < a.length; i++) {
+		if (counter[a[i]]) {
+			counter[a[i]]++;
+		} else {
+			counter[a[i]] = 1;
+		}
+	}
+
+	for (let j = 0; j < b.length; j++) {
+		console.log(counter);
+		if (!counter[b[j]]) {
+			return false;
+		} else {
+			counter[b[j]]--;
+		}
+	}
+	return counter;
+};
+console.log(anagram3("anambra", "branaam"));
+
+//Binary search 3
+const binaryArray = [11, 22, 33, 44, 55];
+const binarySearch3 = (array, value) => {
+	let rightPointer = array.length - 1;
+	let leftPointer = 0;
+	let middlePointer = Math.floor((rightPointer + leftPointer) / 2);
+
+	while (value !== array[middlePointer]) {
+		if (value < array[middlePointer]) {
+			rightPointer = middlePointer - 1;
+		} else {
+			leftPointer = middlePointer + 1;
+		}
+		middlePointer = Math.floor((rightPointer + leftPointer) / 2);
+	}
+
+	return middlePointer;
+};
+
+console.log(binarySearch3(binaryArray, 44));
+
+const binarySearch4 = (array, value) => {
+	let rightPointer = array.length - 1;
+	let leftPointer = 0;
+	let middlePointer = Math.floor(rightPointer + leftPointer / 2);
+
+	while (value !== array[middlePointer]) {
+		if (value < middlePointer) {
+			rightPointer = middlePointer - 1;
+		} else {
+			leftPointer = middlePointer + 1;
+		}
+		middlePointer = Math.floor((rightPointer + leftPointer) / 2);
+	}
+	return middlePointer;
+};
+console.log(binarySearch4([1, 2, 3, 4, 5], 5));
