@@ -122,9 +122,21 @@ const anagram4 = (anagramA, anagramB) => {
 	for (let i = 0; i < anagramA.length; i++) {
 		if (anaHome[anagramA[i]]) {
 			anaHome[anagramA[i]]++;
+		} else {
+			anaHome[anagramA[i]] = 1;
 		}
 	}
+
+	for (let j = 0; j < anagramB.length; j++) {
+		if (!anaHome[anagramB[j]]) {
+			return false;
+		} else {
+			anaHome[anagramB[j]]--;
+		}
+	}
+	return anaHome;
 };
+console.log(anagram4("anagram", "anagrma"));
 
 //Binary search 3
 const binaryArray = [11, 22, 33, 44, 55];
@@ -182,3 +194,20 @@ const binarySearch5 = (array, value) => {
 	return middlePointer;
 };
 console.log(binarySearch5([12, 31, 45, 76, 99], 76));
+
+// const binarySearchAlgorithm = (array, value) => {
+// 	let rightIndex = array.length - 1;
+// 	let leftIndex = 0;
+// 	let middleIndex = Math.floor((rightIndex + leftIndex) / 2);
+
+// 	while (value !== array[middleIndex]) {
+// 		if (value < middleIndex) {
+// 			rightIndex = middleIndex - 1;
+// 		} else {
+// 			leftIndex = middleIndex + 1;
+// 		}
+// 		middleIndex = Math.floor((rightIndex + leftIndex) / 2);
+// 	}
+// 	return middleIndex;
+// };
+// console.log(binarySearchAlgorithm([11, 21, 31, 41, 51], 21));
